@@ -18,8 +18,8 @@ sudo usermod -aG docker "$USER"
 ## Quick start
 
 ```bash
-git clone git@github.com:kidshuster/the-network-run.git
-cd the-network-run
+git clone git@github.com:kidshuster/the-network-install.git
+cd the-network-install
 cp .env.example .env
 # Edit .env: DISCORD_TOKEN and GUILD_ID (required)
 chmod +x scripts/*.sh
