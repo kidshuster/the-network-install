@@ -1,7 +1,7 @@
 # The Network — runtime compose (image tag set by bin/package.sh)
 services:
   the-network:
-    image: ghcr.io/kidshuster/the-network:1.2.12
+    image: ghcr.io/kidshuster/the-network:1.2.13
     restart: unless-stopped
     env_file:
       - .env
