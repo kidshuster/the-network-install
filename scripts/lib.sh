@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared helpers for deploy/run lifecycle scripts.
+# Shared helpers for install lifecycle scripts.
 
 set -euo pipefail
 
