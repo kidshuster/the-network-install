@@ -38,7 +38,7 @@ Verify in Discord: run `/status` in your central guild. Run `/server init` once 
 | `./scripts/start.sh` | Start container (compose, no systemd) |
 | `./scripts/stop.sh` | Stop container |
 | `./scripts/logs.sh` | Follow container logs |
-| `./scripts/update.sh` | Pull latest image and recreate container |
+| `./scripts/update.sh` | Pull image, offline-validate, swap live, then `docker system prune -af` |
 | `./scripts/enable.sh` | Install systemd unit and start on boot |
 | `./scripts/disable.sh` | Stop, disable systemd, remove unit file |
 
@@ -48,6 +48,12 @@ Verify in Discord: run `/status` in your central guild. Run `/server init` once 
 git pull
 ./scripts/update.sh
 ```
+
+`update.sh` keeps the live container running while it pulls and offline-validates the
+new image (Python imports + entrypoint test-mode rejection, no Discord connection).
+Only after validation passes does it recreate the live container. On a confirmed
+swap it runs `docker system prune -af` to reclaim unused Docker data on the host.
+If validation fails, the live container is left untouched.
 
 With systemd:
 
