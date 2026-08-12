@@ -115,3 +115,14 @@ compose_service_running() {
   fi
   [[ "$(docker inspect -f '{{.State.Running}}' "${id}")" == "true" ]]
 }
+
+pull_install_repo() {
+  local root
+  root="$(run_root)"
+  if [[ ! -d "${root}/.git" && ! -f "${root}/.git" ]]; then
+    echo "Install directory is not a git checkout; skipping git pull."
+    return 0
+  fi
+  echo "Pulling latest install repo..."
+  git -C "${root}" pull --ff-only
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pull and offline-validate the new image while live stays up, then swap.
+# Sync install repo, pull and offline-validate the new image, then swap live.
 set -euo pipefail
 
 # shellcheck source=lib.sh
@@ -10,6 +10,8 @@ require_env_file
 
 root="$(run_root)"
 cd "$root"
+
+pull_install_repo
 
 if [[ -f VERSION ]]; then
   echo "Updating to version $(cat VERSION)..."
