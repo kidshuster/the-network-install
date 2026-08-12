@@ -2,7 +2,7 @@
 
 Minimal files to run [The Network](https://github.com/kidshuster/the-network) Discord bot via Docker on any host (amd64 or arm64, including Raspberry Pi 4/5).
 
-**Image:** `ghcr.io/kidshuster/the-network:1.3.0`
+**Image:** `ghcr.io/kidshuster/the-network:1.3.1`
 
 This repository is the install/runtime repo. Clone it alone — no application source required.
 
